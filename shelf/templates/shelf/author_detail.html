@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block 'content' %}
+
+<div><a href="{% url 'author-list' %}">Powrot do listy autorow</a></div>
+
+Profil autora: {{object.first_name}}, {{object.last_name}}
+
+{% endblock %}
