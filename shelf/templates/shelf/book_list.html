@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block 'content' %}
+<ul>
+    {% for book in object_list %}
+    <li><a href="{% url 'shelf:book-detail' book.id %}">{{ book.title }}</a> -
+        {% for author in book.author_set.all %}
+            {{ author.first_name }} {{ author.last_name }}
+        {% if not forloop.last %},{% endif %}
+        <!-- bedzie odzielal przecinkiem az to nie bedzie ostatni obiekt -->
+        {% endfor %}
+
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
